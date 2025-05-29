@@ -25,7 +25,7 @@ jobs:
         python generate_docs.py
         mv *.html docs/
         touch docs/.nojekyll 
-
+    
     - name: Commit dels HTMLs
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -35,5 +35,4 @@ jobs:
         git add docs/
         git commit -m "Docs generades automàticament amb pydoc" || echo "Res a commitejar"
         git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
-        git push origin main
-
+        git push origin HEAD:main
