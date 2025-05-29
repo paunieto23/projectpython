@@ -17,4 +17,4 @@ Visitar http://127.0.0.1:8000/ para acceder.
 `python manage.py test`
 
 ## GitHub Actions
-Archivo de CI en `.github/workflows/django-tests.yml`.
+Archivo de CI en `.github/workflows/test.yml`.

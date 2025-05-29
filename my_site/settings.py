@@ -1,12 +1,31 @@
+"""
+settings.py
+
+Configuració principal del projecte Django 'my_site'.
+
+Inclou:
+- Configuració de seguretat i entorn.
+- Llista d'aplicacions instal·lades i middlewares.
+- Rutes, plantilles, base de dades i autenticació.
+- Configuració d'idioma, fus horari i arxius estàtics i multimèdia.
+"""
+
 import os
 from pathlib import Path
 
+# Directori base del projecte
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Clau secreta per a l'aplicació (canvia-la en producció!)
 SECRET_KEY = 'django-insecure-replace-this-with-a-secure-key'
+
+# Activa el mode debug (només en desenvolupament)
 DEBUG = True
+
+# Llista d’hostings permesos (deixa-ho buit en desenvolupament)
 ALLOWED_HOSTS = []
 
+# Aplicacions instal·lades
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -14,9 +33,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'concesionario',
+    'concesionario',  # Aplicació pròpia
 ]
 
+# Middleware utilitzat pel projecte
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -27,12 +47,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Arxiu de rutes principal
 ROOT_URLCONF = 'my_site.urls'
 
+# Configuració dels templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'templates'],  # Ruta personalitzada de plantilles
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -45,9 +67,11 @@ TEMPLATES = [
     },
 ]
 
+# Configuració WSGI/ASGI
 WSGI_APPLICATION = 'my_site.wsgi.application'
 ASGI_APPLICATION = 'my_site.asgi.application'
 
+# Configuració de la base de dades (SQLite per defecte)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -55,6 +79,7 @@ DATABASES = {
     }
 }
 
+# Validació de contrasenyes
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -62,12 +87,14 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
+# Configuració de l’idioma i zona horària
 LANGUAGE_CODE = 'es-es'
 TIME_ZONE = 'Europe/Madrid'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+# Configuració d’arxius estàtics i multimèdia
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 MEDIA_URL = '/media/'
