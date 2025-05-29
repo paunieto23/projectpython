@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="content-wrapper">
+  <h1>{{ dealer.name }}</h1>
+  <p>{{ dealer.bio|default:"" }}</p>
+
+  <h2>Coches</h2>
+  <div class="car-list">
+    {% for car in dealer.cars.all %}
+      <div class="card">
+        {% if car.image %}
+          <img src="{{ car.image.url }}" alt="{{ car.title }}">
+        {% endif %}
+        <div class="card-body">
+          <h3><a href="{% url 'cars-detail' car.slug %}">{{ car.title }}</a></h3>
+          <p class="price">{{ car.price }}€</p>
+        </div>
+      </div>
+    {% empty %}
+      <p>No hay coches disponibles.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

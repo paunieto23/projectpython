@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Concesionarios</h1>
+
+<table class="dealer-table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Bio</th>
+      <th style="text-align:center;">Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for dealer in dealers %}
+    <tr>
+      <td><a href="{% url 'dealers-detail' dealer.slug %}">{{ dealer.name }}</a></td>
+      <td>{{ dealer.bio|default:"—" }}</td>
+      <td style="text-align:center;">
+        <a href="{% url 'dealers-detail' dealer.slug %}"
+           style="padding:0.4em 0.8em; background:#007bff; color:white; text-decoration:none; border-radius:4px;">
+          saber-ne +
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

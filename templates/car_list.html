@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="content-wrapper">
+  <h1>Todos los Coches</h1>
+
+  <div class="cards-grid cars-fixed-4">
+    {% for car in cars %}
+      <div class="card">
+        {% if car.image %}
+          <img src="{{ car.image.url }}" alt="{{ car.title }}">
+        {% endif %}
+        <div class="card-body">
+          <h3><a href="{% url 'cars-detail' car.slug %}">{{ car.title }}</a></h3>
+          <p class="price">{{ car.price }}€</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+

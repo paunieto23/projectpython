@@ -1,0 +1,34 @@
+{# templates/car_detail.html #}
+{% extends 'base.html' %}
+{% block content %}
+<article class="post-detail">
+  <header>
+    <h1>{{ car.title }}</h1>
+    <p class="post-meta">
+      {{ car.created_at|date:"d M Y" }} -  
+      <a href="{% url 'dealers-detail' car.dealer.slug %}">{{ car.dealer.name }}</a>
+    </p>
+  </header>
+
+  {% if car.image %}
+    <img src="{{ car.image.url }}" alt="{{ car.title }}" class="post-image">
+  {% endif %}
+
+  <div class="post-body">
+    <p>{{ car.description }}</p>
+    <p><strong>Precio:</strong> {{ car.price }}€</p>
+  </div>
+
+  {% if car.tags.exists %}
+  <footer class="post-tags">
+    <h2>Etiquetas</h2>
+    <ul class="tag-list">
+      {% for tag in car.tags.all %}
+        <li><a href="{% url 'tag-cars' tag.slug %}" class="tag-item">{{ tag.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </footer>
+  {% endif %}
+</article>
+{% endblock %}
+

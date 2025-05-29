@@ -1,0 +1,38 @@
+{# templates/index.html #}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{# 1. Banner justo debajo del nav #}
+<div class="banner">
+  <img src="{% static 'img/Punto-de-venta-SPOTICAR.jpg' %}"
+       alt="Banner Concesionario"
+       class="banner-img">
+</div>
+
+{# 2. Título centrado #}
+<h1 class="page-title">Últimos Coches</h1>
+
+{# 3. Sólo 3 coches y centrados en una fila fija de 3 columnas #}
+<div class="content-wrapper">
+  <div class="featured">
+    {% for car in cars %}
+      <div class="featured-card">
+        {% if car.image %}
+          <img src="{{ car.image.url }}" alt="{{ car.title }}">
+        {% endif %}
+        <div class="featured-card-body">
+          <h3>
+            <a href="{% url 'cars-detail' car.slug %}">
+              {{ car.title }}
+            </a>
+          </h3>
+          <p class="price">{{ car.price }}€</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="content-wrapper">
+  <h1>Coches con etiqueta “{{ tag.name }}”</h1>
+
+  {% if cars %}
+    <div class="car-list">
+      {% for car in cars %}
+        <div class="card">
+          {% if car.image %}
+            <img src="{{ car.image.url }}" alt="{{ car.title }}">
+          {% endif %}
+          <div class="card-body">
+            <h3>
+              <a href="{% url 'cars-detail' car.slug %}">{{ car.title }}</a>
+            </h3>
+            <p class="price">{{ car.price }}€</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No hay coches con esta etiqueta.</p>
+  {% endif %}
+</div>
+
+{% endblock %}
