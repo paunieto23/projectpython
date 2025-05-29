@@ -30,6 +30,7 @@ jobs:
         python -m pydoc -w my_site.settings
         python -m pydoc -w my_site.urls
         mv *.html docs/
+        touch docs/.nojekyll  # ✅ Desactiva Jekyll per evitar errors
 
     - name: Commit dels HTMLs
       run: |
