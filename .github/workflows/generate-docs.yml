@@ -22,9 +22,7 @@ jobs:
         mkdir -p docs
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        export DJANGO_SETTINGS_MODULE=my_site.settings
-        python -m pydoc -w concesionario.models
-        python -m pydoc -w concesionario.views
+        python generate_docs.py
         mv *.html docs/
         touch docs/.nojekyll 
 
