@@ -25,7 +25,7 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: Run migrations
-      run: python concesionario_project/manage.py migrate
+      run: python manage.py migrate
 
     - name: Run tests
-      run: python concesionario_project/manage.py test
+      run: python manage.py test
