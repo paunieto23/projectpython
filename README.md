@@ -1,27 +1,28 @@
-# Concesionario Django Project
+# Projecte Django Concessionari
 
-## Introducción
-Proyecto de concesionario de coches con Django.
+## Introducció  
+Projecte d’un concessionari de cotxes fet amb Django.
 
-## Instalación
-1. Clonar el repositorio.
-2. Instalar dependencias: `pip install -r requirements.txt`.
-3. Ejecutar migraciones: `python manage.py migrate`.
-4. Cargar datos iniciales: `python manage.py loaddata fixtures/initial_data.json`.
+## Instal·lació  
+1. Clona el repositori.  
+2. Instal·la les dependències: `pip install -r requirements.txt`.  
+3. Executa les migracions: `python manage.py migrate`.  
+4. Carrega les dades inicials: `python manage.py loaddata fixtures/initial_data.json`.
 
-## Ejecución
-`python manage.py runserver`  
-Visitar http://127.0.0.1:8000/ para acceder.
+## Execució  
+Per obrir el servidor, cal utilitzar aquesta comanda: `python manage.py runserver`  
+Visita http://127.0.0.1:8000/ per accedir a l’aplicació.
 
-## Tests
-`python manage.py test`
+## Tests  
+Per executar els tests, cal utilitzar la següent comanda: `python manage.py test`
 
-## GitHub Actions
-Archivo de CI en `.github/workflows/test.yml`.
+## GitHub Actions  
+Arxiu de CI ubicat a `.github/workflows/test.yml`.
 
-## Enlaces
+## Enllaços  
 
-- [models.py](https://htmlpreview.github.io/?https://paunieto23.github.io/projectpython/concesionario.models.html)
+- [models.py](https://htmlpreview.github.io/?https://paunieto23.github.io/projectpython/concesionario.models.html)  
 - [views.py](https://htmlpreview.github.io/?https://paunieto23.github.io/projectpython/concesionario.views.html)
+
 
     
